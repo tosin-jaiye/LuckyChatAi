@@ -1,6 +1,6 @@
 // pages/auth.js
 import { useState } from 'react';
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, sendPasswordResetEmail } from 'firebase/auth';
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword, sendPasswordResetEmail } from 'firebase/auth';
 import { useRouter } from 'next/router';
 import { auth } from '../utils/firebaseConfig';
 import styles from './auth.module.css';
@@ -33,8 +33,10 @@ export default function Auth() {
     return (
         <div className={styles.container}>
             <div className={styles.formContainer}>
-                <h1 className={styles.title}>{forgotPassword ? 'Reset Password' : isSignUp ? 'Sign Up' : 'Sign In'}</h1>
-                <h2 className={styles.subtitle}>Welcome to LuckyChatAI</h2>
+                <div className={styles.headerSection}>
+                    <h1 className={styles.title}>{forgotPassword ? 'Reset Password' : isSignUp ? 'Sign Up' : 'Sign In'}</h1>
+                    <h2 className={styles.subtitle}>Welcome to LuckyChatAI</h2>
+                </div>
                 <p className={styles.description}>
                     Need help with something? Just yelp for LuckyChat! Our chatbot is designed to provide quick and accurate responses to common customer queries, ensuring a seamless experience for your users.
                 </p>

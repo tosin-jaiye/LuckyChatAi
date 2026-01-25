@@ -1,123 +1,144 @@
-/* styles/auth.module.css */
+/* pages/auth.module.css */
 
 .container {
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh; /* Minimum viewport height */
-    width: 100vw;  /* Full viewport width */
-    background: linear-gradient(135deg, #f6f9fc, #e1e9f0); /* Gradient background */
+    min-height: 100vh;
+    width: 100vw;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     padding: 0;
     box-sizing: border-box;
 }
 
 .formContainer {
-    background: #ff7b7b;
-    border-radius: 12px; /* Slightly rounded corners for modern look */
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1); /* Slightly stronger shadow for depth */
-    width: 90vw; /* Adjust width relative to viewport width */
-    max-width: 100vw; /* Maximum width to prevent it from being too wide */
-    padding: 2rem;
+    background: #ffffff;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    width: 90vw;
+    max-width: 500px;
+    padding: 0;
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
     align-items: center;
-    overflow: hidden; /* Prevent overflow */
-    min-height: 80vh; /* Ensure container is at least 80% of viewport height */
+    overflow: hidden;
+}
+
+.headerSection {
+    background: linear-gradient(120deg, #667eea, #764ba2);
+    width: 100%;
+    padding: 2.5rem 2rem;
+    text-align: center;
 }
 
 .title {
-    font-size: calc(1.75rem + 1vw); /* Responsive font size based on viewport width */
-    font-weight: 700; /* Bold title */
+    font-size: 2rem;
+    font-weight: 700;
     margin-bottom: 0.5rem;
-    color: #333; /* Dark text for better readability */
+    color: #ffffff;
     text-align: center;
 }
 
 .subtitle {
-    font-size: calc(1.1rem + 0.5vw); /* Responsive font size based on viewport width */
-    color: #312e2e; /* Medium dark text */
-    margin-bottom: 1rem;
+    font-size: 1.1rem;
+    color: rgba(255, 255, 255, 0.95);
+    margin-bottom: 0;
     text-align: center;
 }
 
 .description {
-    font-size: calc(0.9rem + 0.5vw); /* Responsive font size based on viewport width */
-    color: #615a5a; /* Lighter text for secondary information */
+    font-size: 0.95rem;
+    color: #666;
     margin-bottom: 2rem;
     text-align: center;
+    line-height: 1.6;
+    padding: 0 1rem;
 }
 
 .authContainer {
     display: flex;
     flex-direction: column;
     width: 100%;
+    padding: 2rem;
+    box-sizing: border-box;
 }
 
 .inputField {
     width: 100%;
-    padding: 0.75rem;
+    padding: 0.875rem 1rem;
     margin-bottom: 1rem;
-    border: 1px solid #ddd;
-    border-radius: 6px; /* Rounded corners for input fields */
-    font-size: calc(0.9rem + 0.5vw); /* Responsive font size based on viewport width */
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 1rem;
     box-sizing: border-box;
-    transition: border-color 0.3s ease;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .inputField:focus {
-    border-color: #0070f3; /* Highlight border color on focus */
-    outline: none; /* Remove default outline */
+    border-color: #667eea;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
 }
 
 .button {
-    padding: 0.75rem;
-    background-color: #0070f3;
+    width: 100%;
+    padding: 1rem;
+    background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
     color: white;
     border: none;
-    border-radius: 6px; /* Rounded corners for button */
-    font-size: calc(0.9rem + 0.5vw); /* Responsive font size based on viewport width */
+    border-radius: 8px;
+    font-size: 1.05rem;
+    font-weight: 600;
     cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.2s ease;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
     margin-bottom: 1rem;
 }
 
 .button:disabled {
-    background-color: #aaa;
+    background: #ccc;
     cursor: not-allowed;
+    transform: none;
 }
 
 .button:hover:not(:disabled) {
-    background-color: #005bb5;
-    transform: translateY(-2px); /* Slight lift effect on hover */
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
 }
 
 .switchText {
     margin-top: 1rem;
     text-align: center;
+    color: #666;
+    font-size: 0.95rem;
 }
 
 .link {
-    color: #0070f3;
+    color: #667eea;
     text-decoration: none;
     cursor: pointer;
-    font-weight: 500; /* Slightly bolder text for links */
+    font-weight: 600;
+    transition: color 0.2s ease;
 }
 
 .link:hover {
+    color: #764ba2;
     text-decoration: underline;
 }
 
 .features {
     margin-top: 2rem;
+    padding: 0 2rem 2rem;
     text-align: center;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .featuresTitle {
-    font-size: calc(1.5rem + 0.5vw); /* Responsive font size based on viewport width */
-    font-weight: 700; /* Bold title */
-    color: #333; /* Dark text for visibility */
-    margin-bottom: 1rem;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 1.5rem;
 }
 
 .featureBoxes {
@@ -128,71 +149,99 @@
 }
 
 .featureBox {
-    background: #ffffff;
-    border: 1px solid #ddd;
-    border-radius: 8px; /* Slightly rounded corners for feature boxes */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Light shadow for depth */
+    background: linear-gradient(135deg, rgba(102, 126, 234, 0.05) 0%, rgba(118, 75, 162, 0.05) 100%);
+    border: 2px solid #f0f0f0;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
     padding: 1.5rem;
     width: 100%;
-    max-width: 300px; /* Maximum width for feature boxes */
+    max-width: 280px;
     text-align: center;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
 }
 
 .featureBox:hover {
-    transform: translateY(-5px); /* Slight lift effect on hover */
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* Stronger shadow on hover */
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(102, 126, 234, 0.2);
+    border-color: #667eea;
 }
 
 .featureBox h3 {
-    font-size: calc(1.2rem + 0.3vw); /* Responsive font size based on viewport width */
+    font-size: 1.2rem;
     margin-bottom: 0.5rem;
-    color: #333; /* Dark text for headings */
-    font-weight: 600; /* Semi-bold headings */
+    color: #333;
+    font-weight: 600;
+    background: linear-gradient(120deg, #667eea, #764ba2);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
 }
 
 .featureBox p {
-    font-size: calc(0.9rem + 0.3vw); /* Responsive font size based on viewport width */
-    color: #555; /* Medium dark text for content */
-    line-height: 1.5; /* Line height for better readability */
+    font-size: 0.9rem;
+    color: #666;
+    line-height: 1.6;
 }
 
-/* Responsive Styles for Height */
-@media (max-height: 600px) {
-    .formContainer {
-        padding: 1.5rem; /* Reduce padding on shorter screens */
-    }
+.footer {
+    width: 100%;
+    background: linear-gradient(120deg, #667eea, #764ba2);
+    padding: 1rem;
+    text-align: center;
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.9);
+    margin-top: auto;
+}
 
+.footer p {
+    margin: 0;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
     .title {
-        font-size: calc(1.5rem + 1vw); /* Slightly smaller font size on shorter screens */
+        font-size: 1.75rem;
     }
 
     .subtitle {
-        font-size: calc(1rem + 0.5vw); /* Slightly smaller font size on shorter screens */
+        font-size: 1rem;
     }
 
     .description {
-        font-size: calc(0.8rem + 0.5vw); /* Slightly smaller font size on shorter screens */
+        font-size: 0.9rem;
     }
 
-    .inputField,
-    .button {
-        font-size: calc(0.8rem + 0.5vw); /* Slightly smaller font size on shorter screens */
+    .headerSection {
+        padding: 2rem 1.5rem;
+    }
+
+    .authContainer {
+        padding: 1.5rem;
+    }
+
+    .features {
+        padding: 0 1.5rem 1.5rem;
+    }
+
+    .featureBox {
+        max-width: 100%;
     }
 }
 
+@media (max-height: 600px) {
+    .formContainer {
+        padding: 0;
+    }
 
-.footer {
-    position: left;
-    bottom: 0;
-    width: 100%;
-    background: #ea1616; /* Light gray background for the footer */
-    padding: 1rem;
-    text-align: center;
-    font-size: calc(0.8rem + 0.2vw); /* Responsive font size */
-    color: #242020; /* Light gray text */
-  }
-  
-  .footer p {
-    margin: 0;
-  }
+    .headerSection {
+        padding: 1.5rem 1rem;
+    }
+
+    .title {
+        font-size: 1.5rem;
+    }
+
+    .subtitle {
+        font-size: 0.95rem;
+    }
+}

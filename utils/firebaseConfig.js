@@ -4,13 +4,13 @@ import { getAuth } from 'firebase/auth';
 import { getFirestore } from 'firebase/firestore';
 
 const firebaseConfig = {
-    apiKey: "AIzaSyDujASVZ1_wYCc72Hy8Ru6CPHkwC2i2Kdk",
-    authDomain: "chatbot-2932f.firebaseapp.com",
-    projectId: "chatbot-2932f",
-    storageBucket: "chatbot-2932f.appspot.com",
-    messagingSenderId: "683166776130",
-    appId: "1:683166776130:web:67685ab3ec42af43aa26db",
-    measurementId: "G-F4Q8QNBRLV"
+    apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
+    authDomain: process.env.NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN,
+    projectId: process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID,
+    storageBucket: process.env.NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET,
+    messagingSenderId: process.env.NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID,
+    appId: process.env.NEXT_PUBLIC_FIREBASE_APP_ID,
+    measurementId: process.env.NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID
   };
 
 // Initialize Firebase
