@@ -1,32 +1,31 @@
 import { TranslationServiceClient } from '@google-cloud/translate';
 
 // Initialize the Translation Service Client
-// If GOOGLE_APPLICATION_CREDENTIALS environment variable is set, it will use that file path
-// Otherwise, it will use credentials from environment variables
-let client;
-
-if (process.env.GOOGLE_APPLICATION_CREDENTIALS) {
-  // Use credentials file path
-  client = new TranslationServiceClient();
-} else if (process.env.GOOGLE_CLOUD_PRIVATE_KEY && process.env.GOOGLE_CLOUD_CLIENT_EMAIL) {
-  // Use individual environment variables
-  client = new TranslationServiceClient({
-    credentials: {
-      type: 'service_account',
-      project_id: process.env.GOOGLE_CLOUD_PROJECT_ID,
-      private_key_id: process.env.GOOGLE_CLOUD_PRIVATE_KEY_ID,
-      private_key: process.env.GOOGLE_CLOUD_PRIVATE_KEY.replace(/\\n/g, '\n'),
-      client_email: process.env.GOOGLE_CLOUD_CLIENT_EMAIL,
-      client_id: process.env.GOOGLE_CLOUD_CLIENT_ID,
-      auth_uri: 'https://accounts.google.com/o/oauth2/auth',
-      token_uri: 'https://oauth2.googleapis.com/token',
-      auth_provider_x509_cert_url: 'https://www.googleapis.com/oauth2/v1/certs',
-      client_x509_cert_url: `https://www.googleapis.com/robot/v1/metadata/x509/${encodeURIComponent(process.env.GOOGLE_CLOUD_CLIENT_EMAIL)}`,
-      universe_domain: 'googleapis.com'
-    }
-  });
-} else {
-  throw new Error('Google Cloud credentials not configured. Please set GOOGLE_APPLICATION_CREDENTIALS or provide individual credential environment variables.');
+// Lazy initialization to avoid errors during build time
+function getTranslationClient() {
+  if (process.env.GOOGLE_APPLICATION_CREDENTIALS) {
+    // Use credentials file path
+    return new TranslationServiceClient();
+  } else if (process.env.GOOGLE_CLOUD_PRIVATE_KEY && process.env.GOOGLE_CLOUD_CLIENT_EMAIL) {
+    // Use individual environment variables
+    return new TranslationServiceClient({
+      credentials: {
+        type: 'service_account',
+        project_id: process.env.GOOGLE_CLOUD_PROJECT_ID,
+        private_key_id: process.env.GOOGLE_CLOUD_PRIVATE_KEY_ID,
+        private_key: process.env.GOOGLE_CLOUD_PRIVATE_KEY.replace(/\\n/g, '\n'),
+        client_email: process.env.GOOGLE_CLOUD_CLIENT_EMAIL,
+        client_id: process.env.GOOGLE_CLOUD_CLIENT_ID,
+        auth_uri: 'https://accounts.google.com/o/oauth2/auth',
+        token_uri: 'https://oauth2.googleapis.com/token',
+        auth_provider_x509_cert_url: 'https://www.googleapis.com/oauth2/v1/certs',
+        client_x509_cert_url: `https://www.googleapis.com/robot/v1/metadata/x509/${encodeURIComponent(process.env.GOOGLE_CLOUD_CLIENT_EMAIL)}`,
+        universe_domain: 'googleapis.com'
+      }
+    });
+  } else {
+    throw new Error('Google Cloud credentials not configured. Please set GOOGLE_APPLICATION_CREDENTIALS or provide individual credential environment variables.');
+  }
 }
 
 export default async function handler(req, res) {
@@ -38,6 +37,7 @@ export default async function handler(req, res) {
   const { text, targetLang = 'en' } = req.body;
 
   try {
+    const client = getTranslationClient();
     const projectId = await client.getProjectId();
     const location = 'global';
     const parent = client.locationPath(projectId, location);

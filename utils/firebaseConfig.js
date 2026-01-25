@@ -1,5 +1,5 @@
 // utils/firebaseConfig.js
-import { initializeApp } from 'firebase/app';
+import { initializeApp, getApps } from 'firebase/app';
 import { getAuth } from 'firebase/auth';
 import { getFirestore } from 'firebase/firestore';
 
@@ -13,9 +13,17 @@ const firebaseConfig = {
     measurementId: process.env.NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID
   };
 
-// Initialize Firebase
-const app = initializeApp(firebaseConfig);
-const auth = getAuth(app);
-const db = getFirestore(app);
+// Initialize Firebase only on client-side
+function getFirebaseApp() {
+  if (getApps().length) {
+    return getApps()[0];
+  }
+  return initializeApp(firebaseConfig);
+}
+
+// Only initialize on client-side
+const app = typeof window !== 'undefined' ? getFirebaseApp() : null;
+const auth = app ? getAuth(app) : null;
+const db = app ? getFirestore(app) : null;
 
 export { auth, db };
