@@ -38,7 +38,8 @@ export default async function handler(req, res) {
 
   try {
     const client = getTranslationClient();
-    const projectId = await client.getProjectId();
+    // Get project ID from environment variable or client
+    const projectId = process.env.GOOGLE_CLOUD_PROJECT_ID || await client.getProjectId();
     const location = 'global';
     const parent = client.locationPath(projectId, location);
 
