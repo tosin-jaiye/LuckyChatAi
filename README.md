@@ -6,6 +6,8 @@
 [![AWS Bedrock](https://img.shields.io/badge/AWS-Bedrock-orange?logo=amazon-aws)](https://aws.amazon.com/bedrock/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
+**[🚀 Live Demo](https://lucky-chat-ai.vercel.app/)**
+
 An intelligent AI-powered chatbot assistant named **Luna** that provides 24/7 customer support with multi-language capabilities. Built with AWS Bedrock (Claude 3), Firebase, and Google Cloud Translate.
 
 ![LuckyChatAI Demo](https://via.placeholder.com/800x400?text=LuckyChatAI+Demo)
