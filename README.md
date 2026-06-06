@@ -58,7 +58,7 @@ Before you begin, ensure you have:
 ### 1. Clone the Repository
 
 \`\`\`bash
-git clone https://github.com/Goodluck07/LuckyChatAi.git
+git clone https://github.com/tosin-jaiye/LuckyChatAi.git
 cd LuckyChatAi
 \`\`\`
 
@@ -222,9 +222,9 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 👨‍💻 Author
 
-**Goodluck Badewole**
-- GitHub: [@Goodluck07](https://github.com/Goodluck07)
-- Email: badewolegoodluck55@gmail.com
+**Tosin Badewole**
+- GitHub: [@tosin-jaiye](https://github.com/tosin-jaiye)
+- Email: badewoletosin55@gmail.com
 
 ---
 
@@ -240,9 +240,9 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## 📞 Support
 
 If you encounter any issues or have questions:
-- Open an [Issue](https://github.com/Goodluck07/LuckyChatAi/issues)
-- Email: badewolegoodluck55@gmail.com
+- Open an [Issue](https://github.com/tosin-jaiye/LuckyChatAi/issues)
+- Email: badewoletosin55@gmail.com
 
 ---
 
-**Made with ❤️ by Goodluck Badewole**
+**Made with ❤️ by Tosin Badewole**
